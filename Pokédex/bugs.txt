@@ -1,0 +1,2 @@
+- Si on duplique un pokémon dans la bdd, il est possible d'obtenir un lien mort dans les évolutions
+- Le resetDataPokemon n'a pas de callback. A cause de ça, le prochain pokémon est chargé avant la suppression de l'ancien. Cela crée un "flash" sur l'image du pokemon

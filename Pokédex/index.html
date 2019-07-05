@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="./assets/styles/style.min.css">
+  </head>
+  <body>
+    <div id="application">
+      <div id="message_prompt">
+        <div id="warning_block">
+          <div class="header">
+            <img class="warning_icon" src="./assets/images/icons/warning.png">
+            <img class="warning_icon" src="./assets/images/icons/warning.png">
+            <div class="title"></div>
+          </div>
+          <div class="message"></div>
+        </div>
+      </div>
+      <!--<div id="loading_prompt">-->
+        <!--<img src="./assets/images/icons/loading.gif">-->
+      <!--</div>-->
+      <div class="app_pages" id="home_page"></div>
+      <div class="app_pages" id="options_page"></div>
+      <div class="app_pages" id="search_page"></div>
+      <div class="app_pages" id="list_page"></div>
+      <div class="app_pages" id="pokemon_page">
+        <div id="previous_pokemon"><span>◀</span></div>
+        <div id="next_pokemon"><span>▶</span></div>
+        <div id="pokemon_page_current" data-pokemon-id="0">
+          <div class="header">
+            <div id="pokefav"><span>☆</span></div>
+            <div id="back_arrow"><span>⤺</span></div>
+            <div id="pokemon_page_title">
+              #<span id="pokemon_number"></span> - <span id="pokemon_name"></span>
+              <div id="pokemon_evolutions"><table><tr></tr></table></div>
+            </div>
+            <div class="block_img_pokemon">
+              <div id="pokemon_measure">
+                <div id="pokemon_weight">
+                  <img class="icons" src="./assets/images/icons/weight.png" alt="">
+                  <span></span>
+                </div>
+                <div id="pokemon_size">
+                  <img class="icons" src="./assets/images/icons/size.png" alt="">
+                  <span></span>
+                </div>
+              </div>
+              <div id="pokemon_abilities"></div>
+              <img class="img_pokemon" id="img_pokemon_normal" src="" alt="">
+              <img class="img_pokemon" id="img_pokemon_shiny" src="" alt="">
+            </div>
+            <div class="block_types"></div>
+          </div>
+          <div id="pokemon_description"><span></span></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./assets/js/libraries/jquery-3.4.1.min.js"></script>
+  <script src="./assets/js/constantes.js"></script>
+  <script src="./assets/js/db_pokemons.js"></script>
+  <script src="./assets/js/db_images.js"></script>
+  <script src="./assets/js/script.js"></script>
+</html>

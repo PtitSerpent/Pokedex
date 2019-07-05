@@ -1,0 +1,305 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Likely future */
+  font-family: Arial;
+  color: #ffffff;
+}
+
+#application {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 480px;
+  width: 320px;
+  overflow: hidden;
+}
+#application #message_prompt {
+  height: 480px;
+  width: 320px;
+  display: none;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#application #message_prompt #warning_block {
+  color: black;
+  text-align: center;
+  overflow-y: hidden;
+  height: 1px;
+  width: 1px;
+  border-radius: 3px;
+  border: 2px solid #ffd42a;
+  box-shadow: 0 0 5px black;
+  background: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+#application #message_prompt #warning_block .header {
+  font-size: 12px;
+  height: 30px;
+  position: relative;
+}
+#application #message_prompt #warning_block .header .title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+#application #message_prompt #warning_block .header .warning_icon {
+  width: 25px;
+  height: 25px;
+  margin: 3px;
+}
+#application #message_prompt #warning_block .header .warning_icon:first-child {
+  float: left;
+}
+#application #message_prompt #warning_block .header .warning_icon:nth-child(2n) {
+  float: right;
+}
+#application #message_prompt #warning_block .message {
+  font-size: 12px;
+  text-align: center;
+  margin: 8px 5px;
+}
+#application #loading_prompt {
+  height: 480px;
+  width: 320px;
+  z-index: 98;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#application #loading_prompt img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#application .app_pages {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+#application .app_pages#home_page {
+  z-index: 10;
+  background-color: white;
+}
+#application .app_pages#pokemon_page {
+  z-index: 9;
+  position: relative;
+  border-radius: 5px;
+}
+#application .app_pages#pokemon_page #previous_pokemon, #application .app_pages#pokemon_page #next_pokemon {
+  color: #000;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 65px;
+  width: 22px;
+  transition: 0.1s;
+}
+#application .app_pages#pokemon_page #previous_pokemon:active, #application .app_pages#pokemon_page #next_pokemon:active {
+  transition: 0.1s;
+  transform: translateY(-50%) scale(0.9);
+}
+#application .app_pages#pokemon_page #previous_pokemon span, #application .app_pages#pokemon_page #next_pokemon span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#application .app_pages#pokemon_page #previous_pokemon {
+  background: linear-gradient(90deg, rgba(191, 0, 1, 0.8), rgba(255, 255, 255, 0.8));
+  box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.8);
+  left: 0;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+#application .app_pages#pokemon_page #previous_pokemon:active {
+  left: -1px;
+}
+#application .app_pages#pokemon_page #next_pokemon {
+  background: linear-gradient(-90deg, rgba(191, 0, 1, 0.8), rgba(255, 255, 255, 0.8));
+  box-shadow: -3px 0px 3px rgba(0, 0, 0, 0.8);
+  right: 0;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+}
+#application .app_pages#pokemon_page #next_pokemon:active {
+  right: -1px;
+}
+#application .app_pages#pokemon_page #pokemon_page_current {
+  height: 100%;
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header {
+  text-align: center;
+  position: relative;
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header #pokefav, #application .app_pages#pokemon_page #pokemon_page_current .header #back_arrow {
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  position: absolute;
+  top: -2%;
+  font-size: 30px;
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header #pokefav#pokefav, #application .app_pages#pokemon_page #pokemon_page_current .header #back_arrow#pokefav {
+  right: 0;
+  border-bottom-left-radius: 100px;
+  border-left: 2px solid rgba(0, 0, 0, 0.5);
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header #pokefav#pokefav span, #application .app_pages#pokemon_page #pokemon_page_current .header #back_arrow#pokefav span {
+  position: absolute;
+  right: 10%;
+  transform: translateX(-10%);
+  text-shadow: 0 0 2px black;
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header #pokefav#back_arrow, #application .app_pages#pokemon_page #pokemon_page_current .header #back_arrow#back_arrow {
+  left: 0;
+  border-bottom-right-radius: 100px;
+  border-right: 2px solid rgba(0, 0, 0, 0.5);
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header #pokefav#back_arrow span, #application .app_pages#pokemon_page #pokemon_page_current .header #back_arrow#back_arrow span {
+  position: absolute;
+  left: 15%;
+  text-shadow: 0 0 2px black;
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header #pokemon_page_title {
+  text-align: center;
+  text-shadow: 0px 0px 2px black;
+  padding: 2px;
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header #pokemon_page_title #pokemon_evolutions {
+  font-size: 10px;
+  min-height: 40px;
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header #pokemon_page_title #pokemon_evolutions table {
+  margin: 0 auto;
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header #pokemon_page_title #pokemon_evolutions .pokemon_evol {
+  cursor: pointer;
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header .block_img_pokemon {
+  padding-bottom: 2px;
+  width: 100%;
+  height: 140px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header .block_img_pokemon .img_pokemon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header .block_img_pokemon .img_pokemon#img_pokemon_shiny {
+  display: none;
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header .block_img_pokemon #pokemon_measure {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  transform: translateY(-50%);
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header .block_img_pokemon #pokemon_measure #pokemon_weight, #application .app_pages#pokemon_page #pokemon_page_current .header .block_img_pokemon #pokemon_measure #pokemon_size {
+  position: relative;
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header .block_img_pokemon #pokemon_measure #pokemon_weight span, #application .app_pages#pokemon_page #pokemon_page_current .header .block_img_pokemon #pokemon_measure #pokemon_size span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header .block_img_pokemon #pokemon_measure .icons {
+  width: 25px;
+  padding: 5px;
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header .block_img_pokemon #pokemon_abilities {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translateY(-50%);
+}
+#application .app_pages#pokemon_page #pokemon_page_current .header .block_img_pokemon #pokemon_abilities div {
+  padding: 2px;
+}
+#application .app_pages#pokemon_page #pokemon_page_current #pokemon_description {
+  margin: 5px auto 7px auto;
+  width: 80%;
+  min-height: 45px;
+  max-height: 45px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+#application .app_pages#pokemon_page #pokemon_page_current #pokemon_description span {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-style: italic;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes message_prompt_in {
+  0% {
+    height: 2px;
+    width: 2px;
+  }
+  50% {
+    height: 2px;
+    width: 240px;
+  }
+  100% {
+    height: 120px;
+    width: 240px;
+  }
+}
+@keyframes message_prompt_out {
+  0% {
+    height: 120px;
+    width: 240px;
+  }
+  50% {
+    height: 2px;
+    width: 240px;
+  }
+  100% {
+    height: 2px;
+    width: 2px;
+  }
+}
+
+/*# sourceMappingURL=style.min.css.map */
